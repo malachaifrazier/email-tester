@@ -1,0 +1,74 @@
+<header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+    </a>
+    <a href="#" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+
+        <% if user_signed_in? %>
+          <li class="nav-link"><a href="#">Campaigns</a></li>
+          <li class="nav-link"><a href="#">Recipient Lists</a></li>
+        <% end %>
+
+        <li class="nav-link"><a href="#">About Us</a></li>
+        <li class="nav-link"><a href="#">Contact</a></li>
+        <li class="nav-link more"><a href="#">More</a>
+          <ul class="submenu">
+            <li><a href="#">Submenu Item</a></li>
+            <li><a href="#">Another Item</a></li>
+            <li class="more"><a href="#">Item with submenu</a>
+              <ul class="submenu">
+                <li><a href="#">Sub-submenu Item</a></li>
+                <li><a href="#">Another Item</a></li>
+              </ul>
+            </li>
+            <li class="more"><a href="#">Another submenu</a>
+              <ul class="submenu">
+                <li><a href="#">Sub-submenu</a></li>
+                <li><a href="#">An Item</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <form role="search">
+          <input type="search" placeholder="Enter Search" />
+          <button type="submit">
+            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
+          </button>
+        </form>
+      </div>
+
+      <% if user_signed_in? %>
+        <%= link_to(destroy_user_session_path, method: :delete, class: "sign-up") do %>
+          <i class="fa fa-sign-out"></i>
+          Log Out
+        <% end %>
+
+        <%= link_to(edit_user_registration_path, class: "logo") do %>
+          <%= image_tag(current_user.gravatar_small, class: "img-circle") %>
+          <span>
+            <%= current_user.full_name %>
+          </span>
+        <% end %>
+
+      <% else %>
+        <%= link_to(new_user_session_path, class: "sign-up") do %>
+          <i class="fa fa-sign-in"></i>
+          Sign In
+        <% end %>
+
+        <%= link_to(new_user_registration_path, class: "sign-up") do %>
+          <i class="fa fa-sign-in"></i>
+          Sign Up
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</header>

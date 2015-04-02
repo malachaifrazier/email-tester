@@ -13,3 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  setTimeout(function() {
+    return $("#flash").fadeOut("slow");
+  }, 5000);
+
+  setTimeout(function() {
+    return $(".alert").fadeOut("slow");
+  }, 5000);
+
+  setTimeout(function() {
+    return $(".alert-quick").fadeOut("slow");
+  }, 5000);
+});
