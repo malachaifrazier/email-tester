@@ -22,9 +22,12 @@
     <![endif]-->
   </head>
   <body class="<%= controller_name %> <%= action_name %> data-spy="scroll" " style>
-    <%= render "refills/navigation" %>
-    <%= render "flashes" %>
-    <%= yield %>
+    <div class="wrapper-for-content-outside-of-footer">
+      <%= render "refills/navigation" %>
+      <%= render "flashes" %>
+      <%= yield %>
+    </div>
+    <%= render "refills/footer_2" %>
     <%= render "javascript" %>
   </body>
 </html>
