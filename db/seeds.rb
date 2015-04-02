@@ -1,7 +1,11 @@
 
 puts 'SETTING UP DEFAULT USER LOGIN for MALACHAI'
 
-user = User.create!( email: 'malachai@shortjab.com', password: 'please', password_confirmation: 'please' )
+user = User.create(
+  email: 'malachai@shortjab.com',
+  password: 'pleaseplease',
+  password_confirmation: 'pleaseplease'
+)
 
 puts '------------'
 puts '------------'
@@ -39,7 +43,11 @@ puts '------------'
 
 puts 'SETTING UP DEFAULT USER LOGIN for ALICE'
 
-user = User.create!( email: 'alicemeichi@gmail.com', password: 'alicemeichi', password_confirmation: 'alicemeichi' )
+user = User.create(
+  email: 'alicemeichi@gmail.com',
+  password: 'alicemeichialicemeichi',
+  password_confirmation: 'alicemeichialicemeichi'
+)
 
 puts '------------'
 puts '------------'
