@@ -10,6 +10,9 @@ RSpec.describe User, type: :model do
 
   it { should respond_to(:full_name) }
 
+  it { should have_many(:campaigns) }
+  # it { should have_many(:emails) }
+
   describe 'valid Model' do
     it 'should be an instance of User Model' do
       expect(user).to be_an_instance_of(User)

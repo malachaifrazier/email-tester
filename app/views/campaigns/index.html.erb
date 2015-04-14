@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-md-12">
+      <h1>Listing Camapigns</h1>
+      <p><%= link_to 'New Campaign', new_campaign_path, class: "button" %></p>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Client Name</th>
+              <th>Campaign Name</th>
+              <th>Status</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @campaigns.each do |campaign| %>
+              <tr>
+                <td><%= campaign.client_name %></td>
+                <td><%= campaign.name %></td>
+                <td><%= campaign.status %></td>
+                <td><%= link_to 'Show', email %></td>
+                <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+                <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <%#= button_to 'New Campaign', new_campaign_path %>
+    </div>
+  </div>
+
+</div>
+

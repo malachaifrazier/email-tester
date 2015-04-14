@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   #     put 'update_password'
   #   end
   # end
+  resources :campaigns
+  resources :emails
 
 end

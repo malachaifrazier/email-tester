@@ -1,0 +1,13 @@
+<%= simple_form_for(@campaign) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.input :name, label: "Campaign Name" %>
+    <%= f.input :client_name, label: "Client Name" %>
+    <%= f.input :completion_status, collection: [["Testing"], ["QA"]], include_blank: false %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :campaigns
+
   validates :password, presence: true, on: :create, length: { within: 6..40 }
   validates :email, presence: true,
                     uniqueness: true,

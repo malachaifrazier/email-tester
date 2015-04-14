@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402040811) do
+ActiveRecord::Schema.define(version: 20150414004443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "campaigns", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "client_name"
+    t.string   "completion_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "campaigns", ["user_id"], name: "index_campaigns_on_user_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -31,6 +42,16 @@ ActiveRecord::Schema.define(version: 20150402040811) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "emails", force: :cascade do |t|
+    t.integer  "campaign_id"
+    t.string   "name"
+    t.string   "subject"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "emails", ["campaign_id"], name: "index_emails_on_campaign_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -81,4 +102,6 @@ ActiveRecord::Schema.define(version: 20150402040811) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
+  add_foreign_key "campaigns", "users"
+  add_foreign_key "emails", "campaigns"
 end
