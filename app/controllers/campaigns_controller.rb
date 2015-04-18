@@ -33,8 +33,7 @@ class CampaignsController < ApplicationController
     @campaign = current_user.campaigns.new(campaign_params)
     respond_to do |format|
       if @campaign.save
-        @campaign.create_default_licenses
-        format.html { redirect_to @campaign, status: 301, #redirect_to @user, status: 301,
+        format.html { redirect_to campaigns_url, status: 301, #redirect_to @user, status: 301,
          notice: 'Campaign was successfully created.' }
         format.json { render json: @campaign, status: :created, location: @campaign }
       else

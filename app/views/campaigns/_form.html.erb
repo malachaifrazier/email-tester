@@ -4,7 +4,7 @@
   <div class="form-group">
     <%= f.input :name, label: "Campaign Name" %>
     <%= f.input :client_name, label: "Client Name" %>
-    <%= f.input :completion_status, collection: [["Testing"], ["QA"]], include_blank: false %>
+    <%= f.input :completion_status, collection: ["Testing", "QA"], include_blank: false %>
   </div>
 
   <div class="form-actions">

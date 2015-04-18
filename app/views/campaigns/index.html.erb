@@ -20,8 +20,8 @@
               <tr>
                 <td><%= campaign.client_name %></td>
                 <td><%= campaign.name %></td>
-                <td><%= campaign.status %></td>
-                <td><%= link_to 'Show', email %></td>
+                <td><%= campaign.completion_status %></td>
+                <td><%= link_to 'Show', campaign %></td>
                 <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
                 <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
