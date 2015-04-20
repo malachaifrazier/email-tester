@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="panel col-md-12 col-md-12">
+      <p>
+        <strong>Campaign:</strong>
+        <%= @campaign.name %>
+      </p>
 
-<p>
-  <strong>Campaign:</strong>
-  <%= @email.campaign %>
-</p>
+      <p>
+        <strong>Client:</strong>
+        <%= @campaign.client_name %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @email.name %>
-</p>
+      <p>
+        <strong>Completion Status:</strong>
+        <%= @campaign.completion_status %>
+      </p>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @email.subject %>
-</p>
+      <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+      <%= link_to 'Back', campaigns_path %>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_email_path(@email) %> |
-<%= link_to 'Back', emails_path %>
+</div>

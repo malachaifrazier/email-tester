@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="panel col-md-12 col-md-12">
+      <p>
+        <strong>List Name:</strong>
+        <%= @recipient_list.name %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipient_list.name %>
-</p>
+      <p>
+        <strong>Email Address List:</strong>
+        <%= @recipient_list.list %>
+      </p>
 
-<p>
-  <strong>List:</strong>
-  <%= @recipient_list.list %>
-</p>
+      <%= link_to 'Edit', edit_recipient_list_path(@recipient_list) %> |
+      <%= link_to 'Back', recipient_lists_path %>
+    </div>
+  </div>
 
-<p>
-  <strong>References:</strong>
-  <%= @recipient_list.references %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_recipient_list_path(@recipient_list) %> |
-<%= link_to 'Back', recipient_lists_path %>
+

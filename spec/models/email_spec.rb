@@ -7,8 +7,10 @@ RSpec.describe Email, type: :model do
   it { should respond_to(:subject) }
   it { should respond_to(:send_status) }
   it { should respond_to(:hosted_html) }
+  it { should respond_to(:campaign_name) }
   it { should belong_to(:campaign) }
   it { should have_many(:recipient_lists) }
+  it { should accept_nested_attributes_for(:recipient_lists) }
 
   describe 'valid Model' do
     it 'should be an instance of Email Model' do

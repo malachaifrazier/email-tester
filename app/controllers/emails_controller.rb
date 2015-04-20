@@ -14,6 +14,8 @@ class EmailsController < ApplicationController
   # GET /emails/new
   def new
     @email = Email.new
+    @additional_recipients = @email.recipient_lists.build
+    @all_recipient_lists =  RecipientList.all
   end
 
   # GET /emails/1/edit
@@ -54,6 +56,6 @@ class EmailsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def email_params
-      params.require(:email).permit(:campaign_id, :name, :subject)
+      params.require(:email).permit(:campaign_id, :name, :subject, recipient_lists_attributes: [:list])
     end
 end
