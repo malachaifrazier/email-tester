@@ -8,7 +8,7 @@ ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options[:host] = "detroitrails.co"
+ActionMailer::Base.default_url_options[:host] = "alice-email-tester.herokuapp.com"
 
 # Mandrill
 

@@ -68,8 +68,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = SMTP_SETTINGS
-
+  # config.action_mailer.smtp_settings = ActionMailer::Base.smtp_settings
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -84,5 +83,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
+  # config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
+
+  config.action_mailer.default_url_options = { host: 'alice-email-tester.herokuapp.com' }
+
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'gmail.com',
+    :user_name            => 'alicehtml1@gmail.com',
+    :password             => 'Codemail123',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
 end
